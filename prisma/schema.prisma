@@ -9,3 +9,58 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id            String @id @default(uuid())
+  username      String @unique
+  passwordHash  String
+  userAuthToken String @unique
+
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  campaigns RpgCampaign[]
+}
+
+model RpgCampaign {
+  id          String @id @default(uuid())
+  name        String
+  description String
+  owner       User   @relation(fields: [ownerId], references: [id])
+  ownerId     String
+
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  sessions  RpgSession[]
+  players   RpgPlayer[]
+}
+
+model RpgPlayer {
+  id            String   @id @default(uuid())
+  name          String
+  characterName String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  campaign   RpgCampaign @relation(fields: [campaignId], references: [id])
+  campaignId String
+}
+
+model RpgSession {
+  id        String   @id @default(uuid())
+  name      String
+  sessionNo Int
+  sessionAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  encounters RpgEncounter[]
+  campaign   RpgCampaign    @relation(fields: [campaignId], references: [id])
+  campaignId String
+}
+
+model RpgEncounter {
+  id          String      @id @default(uuid())
+  description String
+  session     RpgSession? @relation(fields: [sessionId], references: [id])
+  sessionId   String?
+}
