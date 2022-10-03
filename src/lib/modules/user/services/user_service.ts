@@ -46,7 +46,7 @@ export class UserService implements UserServiceInterface {
 	async login(username: string, password: string): Promise<User> {
 		const user = await this.findByUsername(username);
 
-		if (await this.passwordService.comparePasswords(password, user.passwordHash)) {
+		if (!(await this.passwordService.comparePasswords(password, user.passwordHash))) {
 			throw new PasswordError();
 		}
 		return await this.authTokenService.createNewAuthToken(user.id);

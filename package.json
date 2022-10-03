@@ -9,11 +9,15 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"prepare": "npm run smui-theme-light && npm run smui-theme-dark && yarn mixins",
+		"smui-theme-light": "smui-theme compile static/smui.css -i src/theme",
+		"smui-theme-dark": "smui-theme compile static/smui-dark.css -i src/theme/dark",
+		"mixins": "sass --no-source-map -I node_modules src/mixins.scss static/mixins.css"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "next",
+		"@sveltejs/kit": "^1.0.0-next.507",
 		"@types/bcrypt": "^5.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
@@ -36,8 +40,15 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^4.4.0",
+		"@smui/button": "^6.1.4",
+		"@smui/common": "^6.1.4",
+		"@smui/form-field": "^6.1.4",
+		"@smui/paper": "^6.1.4",
+		"@smui/textfield": "^6.1.4",
+		"@smui/top-app-bar": "^6.1.4",
 		"@sveltejs/adapter-node": "^1.0.0-next.96",
 		"bcrypt": "^5.0.1",
-		"oxide.ts": "^1.0.5"
+		"oxide.ts": "^1.0.5",
+		"smui-theme": "^6.2.0"
 	}
 }

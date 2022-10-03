@@ -1,11 +1,7 @@
 import { getUserService } from '$lib/services';
 import type { Action, Actions, PageServerLoad } from './$types';
 import { invalid, redirect } from '@sveltejs/kit';
-import {
-	UsernameAlreadyExistsError,
-	UsernameEmptyError,
-	UsernameError,
-} from '$lib/modules/user/presentation/errors';
+import { UsernameAlreadyExistsError } from '$lib/modules/user/presentation/errors';
 
 const userService = getUserService();
 
