@@ -1,26 +1,28 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import '../app.css';
+	import Nav from '$components/nav.svelte';
 </script>
 
+<link rel="stylesheet" href="/mixins.css" />
+<link rel="stylesheet" href="/smui.css" media="(prefers-color-scheme: light)" />
+<link rel="stylesheet" href="/smui-dark.css" media="screen and (prefers-color-scheme: dark)" />
+
 <svelte:head>
-	<title>SvelteKit Auth</title>
+	<title>Incantates</title>
 </svelte:head>
 
-<nav>
-	{#if !$page.data.user}
-		<a href="/login">Login</a>
-		<a href="/register">Register</a>
-	{/if}
-
-	{#if $page.data.user}
-		<a href="/dashboard">Dashboard</a>
-
-		<form action="/logout" method="POST">
-			<button type="submit">Log out</button>
-		</form>
-	{/if}
-</nav>
+<Nav />
 
 <main>
 	<slot />
 </main>
+
+<style lang="postcss">
+	main {
+		@apply m-6;
+	}
+
+	:global(body) {
+		margin: 0%;
+	}
+</style>

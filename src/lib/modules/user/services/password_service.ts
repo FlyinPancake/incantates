@@ -8,6 +8,6 @@ export class PasswordService implements PasswordServiceInterface {
 	}
 
 	async comparePasswords(password: string, hashedPassword: string) {
-		return (await this.hashPassword(password)) === hashedPassword;
+		return await bcrypt.compare(password, hashedPassword);
 	}
 }
