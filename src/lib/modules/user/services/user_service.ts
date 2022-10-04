@@ -68,4 +68,8 @@ export class UserService implements UserServiceInterface {
 			throw error;
 		}
 	}
+
+	async getById(id: string): Promise<User> {
+		return await this.userRepository.getById(id);
+	}
 }

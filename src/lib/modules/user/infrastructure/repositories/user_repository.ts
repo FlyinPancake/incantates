@@ -56,4 +56,12 @@ export class UserRepository implements UserRepositoryInterface {
 		}
 		return user;
 	}
+
+	async getById(id: string): Promise<User> {
+		return await this.db.user.findUniqueOrThrow({
+			where: {
+				id,
+			},
+		});
+	}
 }

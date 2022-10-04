@@ -1,6 +1,11 @@
 import { IncantatesError } from '$lib/modules/common/presentation/errors';
 
-export class UserCredentialsError extends IncantatesError {
+export class UserError extends IncantatesError {
+	constructor(message = 'UserError') {
+		super(message);
+	}
+}
+export class UserCredentialsError extends UserError {
 	constructor() {
 		super('UserCredentialsError');
 	}
@@ -33,5 +38,11 @@ export class PasswordEmptyError extends UserCredentialsError {
 export class UsernameAlreadyExistsError extends UserCredentialsError {
 	constructor() {
 		super();
+	}
+}
+
+export class UserNotFoundError extends UserError {
+	constructor() {
+		super('UserNotFoundError');
 	}
 }
