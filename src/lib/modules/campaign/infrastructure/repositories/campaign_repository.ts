@@ -24,7 +24,7 @@ export class CampaignRepository implements CampaignRepositoryInterface {
 			throw error;
 		}
 	}
-	async getCampainById(campaignId: string): Promise<RpgCampaign> {
+	async getCampaignById(campaignId: string): Promise<RpgCampaign> {
 		return await this.prisma.rpgCampaign.findUniqueOrThrow({
 			where: {
 				id: campaignId,

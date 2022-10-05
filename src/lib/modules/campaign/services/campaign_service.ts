@@ -13,6 +13,6 @@ export class CampaignService implements CampaignServiceInterface {
 		);
 	}
 	async getCampaignById(campaignId: string): Promise<CampaignModel> {
-		return CampaignModel.fromDB(await this.campaignRepository.getCampainById(campaignId));
+		return CampaignModel.fromDB(await this.campaignRepository.getCampaignById(campaignId));
 	}
 }

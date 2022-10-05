@@ -126,11 +126,46 @@
     "@material/typography" "^13.0.0"
     tslib "^2.1.0"
 
+"@material/card@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/card/-/card-13.0.0.tgz#875d60b398898b6f3a6ff115717f0c144b681bf3"
+  integrity sha512-ooJUOt1Viv99Dyz4rhz9ZZbfa996eHh3RUuXkPRkT66Btd5TzpdqsQWKwOVc5bgbgWqzhDWQ6A/aQdYqH97ccg==
+  dependencies:
+    "@material/dom" "^13.0.0"
+    "@material/elevation" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/rtl" "^13.0.0"
+    "@material/shape" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    tslib "^2.1.0"
+
 "@material/density@^13.0.0":
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/@material/density/-/density-13.0.0.tgz#5ae2fdec0418775014fed24e7ccdd5ba5d005d54"
   integrity sha512-ppJTzOsuhjQam5GvHaq/XZocZNUr+41XQ2sd5nONAmQ0wwzXgqG0FaxtF1EXqK3uZFadz+vAu6enagre9DXhTA==
   dependencies:
+    tslib "^2.1.0"
+
+"@material/dialog@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/dialog/-/dialog-13.0.0.tgz#59b8b7295bfdfea9ea72af9afa7c99efb7744d55"
+  integrity sha512-1Ggo9Bid94F1ttZJKSjIcgMvkVQtKsqwbqLs5cWlleaiwtAcwUE12XA2B1MNj8xM9ajU3BJm4GigupBOK1jGHQ==
+  dependencies:
+    "@material/animation" "^13.0.0"
+    "@material/base" "^13.0.0"
+    "@material/button" "^13.0.0"
+    "@material/dom" "^13.0.0"
+    "@material/elevation" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/icon-button" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/rtl" "^13.0.0"
+    "@material/shape" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    "@material/tokens" "^13.0.0"
+    "@material/touch-target" "^13.0.0"
+    "@material/typography" "^13.0.0"
     tslib "^2.1.0"
 
 "@material/dom@^13.0.0":
@@ -185,6 +220,21 @@
     "@material/rtl" "^13.0.0"
     "@material/theme" "^13.0.0"
     "@material/typography" "^13.0.0"
+    tslib "^2.1.0"
+
+"@material/icon-button@^13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@material/icon-button/-/icon-button-13.0.0.tgz#e2d3fb5dcd2b944883f8241420b82f0f3ce2ebf2"
+  integrity sha512-SdxFytWvbfN0fj7jHFq3DqK5/Zoms+Ipuv6fI8AzwgDFe7mXJ2euPahN+3XcmJ3BaSMyfYsdbcYdCWs8bgHW1w==
+  dependencies:
+    "@material/base" "^13.0.0"
+    "@material/density" "^13.0.0"
+    "@material/elevation" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/rtl" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    "@material/touch-target" "^13.0.0"
     tslib "^2.1.0"
 
 "@material/line-ripple@^13.0.0":
@@ -398,6 +448,22 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@smui-extra/accordion@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@smui-extra/accordion/-/accordion-6.1.4.tgz#122bdd0483df016e9706169bb0d6297e4d8333cd"
+  integrity sha512-2yaGn8Jmqr+EGF+Xk5GkvNGu9jUH+RxuhUybfpZ0LHlGJhmXAAGUthgf44EJ0XLlR7upPaAmd3lI1+fYfmrRDQ==
+  dependencies:
+    "@material/animation" "^13.0.0"
+    "@material/elevation" "^13.0.0"
+    "@material/feature-targeting" "^13.0.0"
+    "@material/ripple" "^13.0.0"
+    "@material/theme" "^13.0.0"
+    "@material/typography" "^13.0.0"
+    "@smui/common" "^6.1.4"
+    "@smui/paper" "^6.1.4"
+    "@smui/ripple" "^6.1.4"
+    svelte2tsx "^0.5.12"
+
 "@smui/button@^6.1.4":
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@smui/button/-/button-6.1.4.tgz#0417ef300fb2c8683bea91e42e0a32de580883ed"
@@ -412,6 +478,18 @@
     "@smui/ripple" "^6.1.4"
     svelte2tsx "^0.5.12"
 
+"@smui/card@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@smui/card/-/card-6.1.4.tgz#daf680ade0b68dcec56ce63bb35084be54182574"
+  integrity sha512-B8t2+w4Y9/3bz80yZeEFJH3Y2aFVZzHsUyBF2aC59rxa5qARihLE7PbCVEyqr6T5oQFr8A7QcHKLC+Ylsxj6HQ==
+  dependencies:
+    "@material/card" "^13.0.0"
+    "@smui/button" "^6.1.4"
+    "@smui/common" "^6.1.4"
+    "@smui/icon-button" "^6.1.4"
+    "@smui/ripple" "^6.1.4"
+    svelte2tsx "^0.5.12"
+
 "@smui/common@^6.1.4":
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@smui/common/-/common-6.1.4.tgz#2e15eda0c5907d1192806311123978ad466d3f66"
@@ -419,6 +497,17 @@
   dependencies:
     "@material/dom" "^13.0.0"
     "@tsconfig/svelte" "^3.0.0"
+    svelte2tsx "^0.5.12"
+
+"@smui/dialog@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@smui/dialog/-/dialog-6.1.4.tgz#874d48cf74a1b8e8db43d28e79916bb49fce54f9"
+  integrity sha512-ouCROTmIHutDxmSI3DYX4vlGeFaq0VHRtdhD3vCdd/7u9qBukXunKaCfTOvqozdoaa0pG3Cc66bYsa25m9RP4w==
+  dependencies:
+    "@material/button" "^13.0.0"
+    "@material/dialog" "^13.0.0"
+    "@material/dom" "^13.0.0"
+    "@smui/common" "^6.1.4"
     svelte2tsx "^0.5.12"
 
 "@smui/floating-label@^6.1.4":
@@ -439,6 +528,17 @@
     "@material/form-field" "^13.0.0"
     "@material/rtl" "^13.0.0"
     "@smui/common" "^6.1.4"
+    svelte2tsx "^0.5.12"
+
+"@smui/icon-button@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@smui/icon-button/-/icon-button-6.1.4.tgz#3e1ebc208a883cde252da1b667cdbb1149fa299e"
+  integrity sha512-8eUow8d+vztGJBzHTuXGP0UszXq5RUN4syxW7Ur742D4zNSrF6dzccjteF5S51a7Pcf7AHeEDkAqHbA6ioIGLw==
+  dependencies:
+    "@material/density" "^13.0.0"
+    "@material/icon-button" "^13.0.0"
+    "@smui/common" "^6.1.4"
+    "@smui/ripple" "^6.1.4"
     svelte2tsx "^0.5.12"
 
 "@smui/line-ripple@^6.1.4":
@@ -2003,11 +2103,6 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
-
-oxide.ts@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/oxide.ts/-/oxide.ts-1.0.5.tgz#321e5f8568823091ad9181c74bc2846b37528b79"
-  integrity sha512-OOm8f9hoVemkYLWiKjrwaWkhhaM+O0RBm3hwBZSIyTGV4LpopwLujyaUxiDmfgD8jiK5S+yoKcNo2f8qNDNWnA==
 
 p-limit@^3.0.2:
   version "3.1.0"

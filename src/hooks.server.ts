@@ -14,7 +14,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		const user = await userService.getBySessionToken(sessionToken);
 
 		event.locals.user = {
-			name: user.username,
+			username: user.username,
 		};
 		return await resolve(event);
 	} catch (e) {

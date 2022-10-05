@@ -47,11 +47,4 @@
 		display: inline-flex;
 		flex-direction: column;
 	}
-
-	.flexor-content {
-		flex-basis: 0;
-		height: 0;
-		flex-grow: 1;
-		overflow: auto;
-	}
 </style>

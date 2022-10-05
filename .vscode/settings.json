@@ -1,13 +1,7 @@
 {
-    "spellright.language": [
-        "en_GB"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext"
-    ],
-    "yaml.schemas": {
-        "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": "file:///home/flyinpancake/Projects/incantates/container/infrastructure-compose.yaml"
-    }
+	"spellright.language": ["en_GB"],
+	"spellright.documentTypes": ["markdown", "latex", "plaintext"],
+	"yaml.schemas": {
+		"https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json": "file:///home/flyinpancake/Projects/incantates/container/infrastructure-compose.yaml"
+	}
 }

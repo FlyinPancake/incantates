@@ -1,14 +1,13 @@
 <script lang="ts">
-	import '../app.css';
 	import Nav from '$components/nav.svelte';
 </script>
 
-<link rel="stylesheet" href="/mixins.css" />
-<link rel="stylesheet" href="/smui.css" media="(prefers-color-scheme: light)" />
-<link rel="stylesheet" href="/smui-dark.css" media="screen and (prefers-color-scheme: dark)" />
-
 <svelte:head>
+	<link rel="stylesheet" href="/mixins.css" />
+	<link rel="stylesheet" href="/smui.css" media="(prefers-color-scheme: light)" />
+	<link rel="stylesheet" href="/smui-dark.css" media="screen and (prefers-color-scheme: dark)" />
 	<title>Incantates</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </svelte:head>
 
 <Nav />
@@ -24,5 +23,6 @@
 
 	:global(body) {
 		margin: 0%;
+		min-height: 100vh;
 	}
 </style>

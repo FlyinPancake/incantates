@@ -70,6 +70,7 @@ export class UserService implements UserServiceInterface {
 	}
 
 	async getById(id: string): Promise<User> {
+		console.log('id', id);
 		return await this.userRepository.getById(id);
 	}
 }

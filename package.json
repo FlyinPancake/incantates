@@ -16,6 +16,16 @@
 		"mixins": "sass --no-source-map -I node_modules src/mixins.scss static/mixins.css"
 	},
 	"devDependencies": {
+		"@smui-extra/accordion": "^6.1.4",
+		"@smui/button": "^6.1.4",
+		"@smui/card": "^6.1.4",
+		"@smui/common": "^6.1.4",
+		"@smui/dialog": "^6.1.4",
+		"@smui/form-field": "^6.1.4",
+		"@smui/icon-button": "^6.1.4",
+		"@smui/paper": "^6.1.4",
+		"@smui/textfield": "^6.1.4",
+		"@smui/top-app-bar": "^6.1.4",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "^1.0.0-next.507",
 		"@types/bcrypt": "^5.0.0",
@@ -40,15 +50,8 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^4.4.0",
-		"@smui/button": "^6.1.4",
-		"@smui/common": "^6.1.4",
-		"@smui/form-field": "^6.1.4",
-		"@smui/paper": "^6.1.4",
-		"@smui/textfield": "^6.1.4",
-		"@smui/top-app-bar": "^6.1.4",
 		"@sveltejs/adapter-node": "^1.0.0-next.96",
 		"bcrypt": "^5.0.1",
-		"oxide.ts": "^1.0.5",
 		"smui-theme": "^6.2.0"
 	}
 }

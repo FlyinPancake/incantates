@@ -15,6 +15,10 @@ export class CampaignModel {
 		return ownerService.getById(this.ownerId);
 	}
 
+	static create(name: string, description: string, ownerId: string) {
+		return new CampaignModel(undefined, name, description, ownerId, undefined, undefined);
+	}
+
 	static fromDB(databaseModel: RpgCampaign) {
 		return new CampaignModel(
 			databaseModel.id,
