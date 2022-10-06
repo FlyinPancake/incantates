@@ -1,4 +1,3 @@
-import type { UserServiceInterface } from '$lib/modules/user/services/user_service_interface';
 import type { RpgCampaign } from '@prisma/client';
 
 export class CampaignModel {
@@ -11,8 +10,22 @@ export class CampaignModel {
 		public updatedAt: Date | undefined,
 	) {}
 
-	getOwner(ownerService: UserServiceInterface): Promise<{ username: string; id: string }> {
-		return ownerService.getById(this.ownerId);
+	public get rawData(): {
+		id: string | undefined;
+		name: string;
+		description: string;
+		ownerId: string;
+		createdAt: Date | undefined;
+		updatedAt: Date | undefined;
+	} {
+		return {
+			id: this.id,
+			name: this.name,
+			description: this.description,
+			ownerId: this.ownerId,
+			createdAt: this.createdAt,
+			updatedAt: this.updatedAt,
+		};
 	}
 
 	static create(name: string, description: string, ownerId: string) {

@@ -38,4 +38,12 @@ export class CampaignRepository implements CampaignRepositoryInterface {
 			},
 		});
 	}
+
+	async findCampaignById(campaignId: string): Promise<RpgCampaign | null> {
+		return await this.prisma.rpgCampaign.findUnique({
+			where: {
+				id: campaignId,
+			},
+		});
+	}
 }

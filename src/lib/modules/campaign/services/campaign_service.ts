@@ -15,4 +15,11 @@ export class CampaignService implements CampaignServiceInterface {
 	async getCampaignById(campaignId: string): Promise<CampaignModel> {
 		return CampaignModel.fromDB(await this.campaignRepository.getCampaignById(campaignId));
 	}
+	async findCampaignById(campaignId: string): Promise<CampaignModel | null> {
+		const campaign = await this.campaignRepository.findCampaignById(campaignId);
+		if (campaign) {
+			return CampaignModel.fromDB(campaign);
+		}
+		return null;
+	}
 }

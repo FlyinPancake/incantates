@@ -3,13 +3,17 @@
 	// import { page } from '$app/stores';
 	import Paper, { Title } from '@smui/paper';
 	import CreateCampaigns from '$components/dialogs/create_campaigns.svelte';
-	import type { CampaignModel } from '$lib/modules/campaign/infrastructure/models';
-	import type { PageData } from './$types';
+	import Accordion, { Panel, Header, Content } from '@smui-extra/accordion';
+	import type { PageData, ActionData, Actions } from './$types';
+	import { goto } from '$app/navigation';
 
 	export let data: PageData;
 
+	export let form: ActionData;
+
 	$: {
 		console.log(data);
+		console.log('form', form);
 	}
 
 	let create_campaign_dialog_open = false;
@@ -25,19 +29,45 @@
 		<Title>
 			<div class="title-container">
 				Campaigns
-				<Button variant="outlined" on:click={() => (create_campaign_dialog_open = true)}>
+				<Button variant="raised" on:click={() => (create_campaign_dialog_open = true)}>
 					<Icon class="material-icons">add</Icon>
 					<Label>Add</Label>
 				</Button>
 			</div>
 		</Title>
-		<!-- {#if data?.data.user}
-			<p>Welcome, {data.data.user.username}!</p>
-		{/if} -->
 
-		{#each data.data.campaigns as campaign}
-			<p>{campaign.name}</p>
-		{/each}
+		<Accordion multiple>
+			{#each data.data.campaigns as campaign}
+				<Panel color="primary">
+					<Header>
+						{campaign.name}
+					</Header>
+					<Content>
+						<Paper>
+							<p>{campaign.description}</p>
+						</Paper>
+						<div class="campaign-actions">
+							<Button
+								variant="text"
+								color="secondary"
+								style="margin-right: 1rem;"
+								on:click={() => console.log('edit campaign', campaign.id)}
+							>
+								<Icon class="material-icons">edit</Icon>
+								<Label>Edit</Label>
+							</Button>
+							<Button
+								variant="raised"
+								color="secondary"
+								on:click={() => goto(`/campaign/${campaign.id}`)}
+							>
+								<Label>Open Details</Label>
+							</Button>
+						</div>
+					</Content>
+				</Panel>
+			{/each}
+		</Accordion>
 	</Paper>
 </main>
 
@@ -55,5 +85,11 @@
 	.title-container {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.campaign-actions {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1rem;
 	}
 </style>

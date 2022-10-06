@@ -1,4 +1,4 @@
-import { json, redirect, invalid } from '@sveltejs/kit';
+import { redirect, invalid } from '@sveltejs/kit';
 import type { PageServerLoad, Action, Actions } from './$types';
 
 import { getUserService, getCampaignService } from '$lib/services';
@@ -13,10 +13,10 @@ export const load: PageServerLoad = async ({ locals }) => {
 	}
 	const user = await userService.findByUsername(locals.user.username);
 	const campaigns = await campaignService.getCampaignsByOwnerId(user.id);
-	const mapped = campaigns.map((campaign) => ({ name: campaign.name, id: campaign.id }));
+
 	return {
 		data: {
-			campaigns: mapped,
+			campaigns: campaigns.map((campaign) => campaign.rawData),
 			user,
 		},
 	};
@@ -25,7 +25,9 @@ export const load: PageServerLoad = async ({ locals }) => {
 const createCampaign: Action = async ({ request, cookies }) => {
 	const sessionCookie = cookies.get('session');
 	if (!sessionCookie || sessionCookie === undefined) {
-		throw redirect(302, '/');
+		return invalid(401, {
+			message: 'Unauthorized',
+		});
 	}
 	try {
 		const user = await userService.getBySessionToken(sessionCookie);
@@ -43,11 +45,9 @@ const createCampaign: Action = async ({ request, cookies }) => {
 			return invalid(400, { message: 'Invalid request' });
 		}
 
-		// await campaignService.createCampaign(
-		// 	CampaignModel.create(campaignName, campaignDescription, user.id),
-		// );
-
-		return json({ success: true });
+		await campaignService.createCampaign(
+			CampaignModel.create(campaignName, campaignDescription, user.id),
+		);
 	} catch (e) {
 		return invalid(400, { message: 'Invalid request' });
 	}
