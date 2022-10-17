@@ -1,11 +1,14 @@
 import { CampaignNotFoundError } from '$lib/modules/campaign/presentation/errors';
 import { Prisma, type PrismaClient } from '@prisma/client';
 import { PlayerNotFoundError } from '../../presentation/error';
-import { PlayerModel } from '../models';
+import { PlayerModel } from '../../dtos/player';
 import type { PlayerRepositoryInterface } from './player_repository_interface';
 
 export class PlayerRepository implements PlayerRepositoryInterface {
 	constructor(private readonly prisma: PrismaClient) {}
+	async removePlayer(playerId: string): Promise<void> {
+		await this.prisma.rpgPlayer.delete({ where: { id: playerId } });
+	}
 
 	async createPlayer(player: PlayerModel): Promise<PlayerModel> {
 		try {

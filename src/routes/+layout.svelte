@@ -3,9 +3,9 @@
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="/mixins.css" />
 	<link rel="stylesheet" href="/smui.css" media="(prefers-color-scheme: light)" />
 	<link rel="stylesheet" href="/smui-dark.css" media="screen and (prefers-color-scheme: dark)" />
+	<link rel="stylesheet" href="/mixins.css" />
 	<title>Incantates</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </svelte:head>

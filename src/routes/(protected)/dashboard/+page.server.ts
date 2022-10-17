@@ -2,7 +2,7 @@ import { redirect, invalid } from '@sveltejs/kit';
 import type { PageServerLoad, Action, Actions } from './$types';
 
 import { getUserService, getCampaignService } from '$lib/services';
-import { CampaignModel } from '$lib/modules/campaign/infrastructure/models';
+import { CampaignModel } from '$lib/modules/campaign/dtos/campaign';
 
 const userService = getUserService();
 const campaignService = getCampaignService();

@@ -1,7 +1,8 @@
 import type { CampaignRepositoryInterface } from './campaign_repository_interface';
 import { Prisma, type PrismaClient, type RpgCampaign } from '@prisma/client';
-import type { CampaignModel } from '../models';
+import type { CampaignModel } from '../../dtos/campaign';
 import { UserNotFoundError } from '$lib/modules/user/presentation/errors';
+import type { RpgCampaignRelations } from '../types';
 
 export class CampaignRepository implements CampaignRepositoryInterface {
 	constructor(private readonly prisma: PrismaClient) {}
@@ -39,10 +40,15 @@ export class CampaignRepository implements CampaignRepositoryInterface {
 		});
 	}
 
-	async findCampaignById(campaignId: string): Promise<RpgCampaign | null> {
+	async findCampaignByIdAndRelations(campaignId: string): Promise<RpgCampaignRelations | null> {
 		return await this.prisma.rpgCampaign.findUnique({
 			where: {
 				id: campaignId,
+			},
+			include: {
+				players: true,
+				owner: true,
+				sessions: true,
 			},
 		});
 	}

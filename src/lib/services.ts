@@ -6,6 +6,8 @@ import { AuthTokenService } from '$lib/modules/user/services/auth_token_service'
 import type { UserServiceInterface } from '$lib/modules/user/services/user_service_interface';
 import { CampaignService } from '$lib/modules/campaign/services/campaign_service';
 import { CampaignRepository } from '$lib/modules/campaign/infrastructure/repositories/campaign_repository';
+import { PlayerService } from '$lib/modules/player/services/playerService';
+import { PlayerRepository } from '$lib/modules/player/infrastructure/repositories/player_repository';
 
 export const getUserService = (): UserServiceInterface => {
 	return new UserService(
@@ -17,4 +19,8 @@ export const getUserService = (): UserServiceInterface => {
 
 export const getCampaignService = () => {
 	return new CampaignService(new CampaignRepository(db));
+};
+
+export const getPlayerService = () => {
+	return new PlayerService(new PlayerRepository(db));
 };

@@ -1,9 +1,9 @@
-import type { RpgCampaign } from '@prisma/client';
-import type { CampaignModel } from '../models';
+import type { CampaignModel } from '../../dtos/campaign';
+import type { RpgCampaignRelations } from '../types';
 
 export interface CampaignRepositoryInterface {
-	createCampaign(campaign: CampaignModel): Promise<RpgCampaign>;
-	getCampaignById(campaignId: string): Promise<RpgCampaign>;
-	findCampaignById(campaignId: string): Promise<RpgCampaign | null>;
-	getCampaignsByOwnerId(ownerId: string): Promise<RpgCampaign[]>;
+	createCampaign(campaign: CampaignModel): Promise<RpgCampaignRelations>;
+	getCampaignById(campaignId: string): Promise<RpgCampaignRelations>;
+	findCampaignByIdAndRelations(campaignId: string): Promise<RpgCampaignRelations | null>;
+	getCampaignsByOwnerId(ownerId: string): Promise<RpgCampaignRelations[]>;
 }

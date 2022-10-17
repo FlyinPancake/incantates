@@ -10,3 +10,4 @@ node_modules
 static/smui-dark.css
 static/smui.css
 yarn-error.log
+static/mixins.css

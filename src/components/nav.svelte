@@ -14,7 +14,7 @@
 				<Section align="end">
 					<Button variant="text" href="/dashboard" color="primary"><Label>Dashboard</Label></Button>
 					<form action="logout" method="post">
-						<Button variant="raised"><Label>Log out</Label></Button>
+						<Button variant="raised" class="button-shaped-round"><Label>Log out</Label></Button>
 					</form>
 				</Section>
 			{:else}

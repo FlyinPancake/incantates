@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Button, { Label, Icon } from '@smui/button';
+	import Button, { Label, Icon, Group } from '@smui/button';
 	// import { page } from '$app/stores';
 	import Paper, { Title } from '@smui/paper';
 	import CreateCampaigns from '$components/dialogs/create_campaigns.svelte';
@@ -29,7 +29,11 @@
 		<Title>
 			<div class="title-container">
 				Campaigns
-				<Button variant="raised" on:click={() => (create_campaign_dialog_open = true)}>
+				<Button
+					variant="raised"
+					class="button-shaped-round"
+					on:click={() => (create_campaign_dialog_open = true)}
+				>
 					<Icon class="material-icons">add</Icon>
 					<Label>Add</Label>
 				</Button>
@@ -38,31 +42,31 @@
 
 		<Accordion multiple>
 			{#each data.data.campaigns as campaign}
-				<Panel color="primary">
+				<Panel>
 					<Header>
 						{campaign.name}
 					</Header>
-					<Content>
-						<Paper>
-							<p>{campaign.description}</p>
-						</Paper>
+					<Content color="background">
+						<p>{campaign.description}</p>
+
 						<div class="campaign-actions">
-							<Button
-								variant="text"
-								color="secondary"
-								style="margin-right: 1rem;"
-								on:click={() => console.log('edit campaign', campaign.id)}
-							>
-								<Icon class="material-icons">edit</Icon>
-								<Label>Edit</Label>
-							</Button>
-							<Button
-								variant="raised"
-								color="secondary"
-								on:click={() => goto(`/campaign/${campaign.id}`)}
-							>
-								<Label>Open Details</Label>
-							</Button>
+							<Group>
+								<Button
+									variant="outlined"
+									color="secondary"
+									on:click={() => console.log('edit campaign', campaign.id)}
+								>
+									<Icon class="material-icons">edit</Icon>
+									<Label>Edit</Label>
+								</Button>
+								<Button
+									variant="raised"
+									color="secondary"
+									on:click={() => goto(`/campaign/${campaign.id}`)}
+								>
+									<Label>Open Details</Label>
+								</Button>
+							</Group>
 						</div>
 					</Content>
 				</Panel>

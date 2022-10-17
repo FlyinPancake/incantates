@@ -1,31 +1,28 @@
-import type { CampaignModel } from '$lib/modules/campaign/infrastructure/models';
-import type { CampaignServiceInterface } from '$lib/modules/campaign/services/campaign_service_interface';
 import type { RpgPlayer } from '@prisma/client';
 
 export class PlayerModel {
 	constructor(
 		public id: string | undefined,
 		public name: string,
-		public characterName: string,
 		public campaignId: string,
+		public characterName: string,
 		public createdAt: Date | undefined,
 		public updatedAt: Date | undefined,
 	) {}
 
-	async getCampaign(campaignService: CampaignServiceInterface): Promise<CampaignModel> {
-		return await campaignService.getCampaignById(this.campaignId);
-	}
-
-	toDB(): RpgPlayer {
-		if (!this.id || !this.createdAt || !this.updatedAt) {
-			throw new Error('Cannot convert to database model');
-		}
-
+	public get rawData(): {
+		id: string | undefined;
+		name: string;
+		campaignId: string;
+		characterName: string;
+		createdAt: Date | undefined;
+		updatedAt: Date | undefined;
+	} {
 		return {
 			id: this.id,
 			name: this.name,
-			characterName: this.characterName,
 			campaignId: this.campaignId,
+			characterName: this.characterName,
 			createdAt: this.createdAt,
 			updatedAt: this.updatedAt,
 		};
@@ -35,10 +32,14 @@ export class PlayerModel {
 		return new PlayerModel(
 			databaseModel.id,
 			databaseModel.name,
-			databaseModel.characterName,
 			databaseModel.campaignId,
+			databaseModel.characterName,
 			databaseModel.createdAt,
 			databaseModel.updatedAt,
 		);
+	}
+
+	static create(name: string, characterName: string, campaignId: string) {
+		return new PlayerModel(undefined, name, campaignId, characterName, undefined, undefined);
 	}
 }

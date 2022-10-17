@@ -23,6 +23,7 @@
 		"@smui/dialog": "^6.1.4",
 		"@smui/form-field": "^6.1.4",
 		"@smui/icon-button": "^6.1.4",
+		"@smui/list": "^7.0.0-beta.0",
 		"@smui/paper": "^6.1.4",
 		"@smui/textfield": "^6.1.4",
 		"@smui/top-app-bar": "^6.1.4",
